@@ -69,10 +69,12 @@ you're not likely going to need much more than an admin user.
 source <environment folder>/bin/activate
 cd <app folder>
 python manage.py migrate
+python manage.py collectstatic
 python manage.py createsuperuser
 ```
 
-provide user name and password as responses to the prompts
+Allow the static content to be collected and provide user name and
+password as responses to the prompts
 
 Configure the PiCamera settings by changing the values in 
 `<app folder>/tusacam/settings.py`
