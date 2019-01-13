@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Tusacam page">
+    <meta name="author" content="Alfonso García-Patiño Barbolani">
+    <link rel="icon" href="/static/favicon.ico">
+    <title>Tusacam Page</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
+    <script src="{% static "jquery/jquery-3.3.1.min.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Tusacam World</a>
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button"
+                    data-toggle="collapse" data-target="#tusacamNavBar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse"" id="tusacamNavBar">
+            <ul class="nav navbar-nav mr-auto">
+              <li class="nav-item"><a class="nav-link" href="{% url 'live_preview' %}">Live Preview</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'browse' %}">Browse Videos</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'camera_config' %}">Camera Settings</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'shutdown' %}">Shutdown</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+      {% block page_content %}
+      {% endblock %}
+    </div>
+  </body>
+ </html>

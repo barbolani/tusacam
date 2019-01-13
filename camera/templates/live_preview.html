@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <img class="img-fluid w-100 h-100" id="live_preview" />
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+        var imgTimeOut = function() {
+            var tmpImg = new Image();
+            tmpImg.onerror = function() { setTimeout(imgTimeOut, 500); }
+            tmpImg.onload = function() {
+                $("#live_preview").attr('src', tmpImg.src);
+                setTimeout(imgTimeOut, 500);
+            };
+            tmpImg.src = "{% url 'still_frame' %}?rnd=" + new Date().getTime();
+        };
+        setTimeout(imgTimeOut, 500);
+    });
+</script>
+{% endblock %}

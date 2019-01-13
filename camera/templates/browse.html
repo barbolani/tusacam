@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<script>
+    $(document).ready(function () {
+
+        $("#refresh").click(function() {
+            location.reload();
+        })
+    })
+</script>
+<h1>Available videos
+  <button id="refresh" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span>Refresh</button>
+</h1>
+{% for video_date, video_list in videos %}
+    <div class="row col-12">
+        <span clasS="col-1">
+            {{video_date|date:"SHORT_DATE_FORMAT"}}
+        </span>
+        <ul class="row col-11">
+        {% for video in video_list %}
+            <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
+                <a class="d-block mb-4 h-100" href="media/{{ video.file }}">
+                    <img src="media/{{ video.thumbnail }}"
+                         class="img-thumbnail"/>
+                    <span>{{video.timestamp|time}} ({{video.duration}})</span>
+                </a>
+            </div>
+        {% endfor %}
+        </ul></li>
+        </div)
+{% endfor %}
+{% endblock %}

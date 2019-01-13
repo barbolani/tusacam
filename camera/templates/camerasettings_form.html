@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div class="container">
+    <h1>Camera Settings</h1>
+    <div class="row">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <table>
+            {{ form }}
+            </table>
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+</div>
+{% endblock %}
