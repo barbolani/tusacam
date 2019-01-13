@@ -1,3 +1,24 @@
+# Welcome to Tusacam
+
+Tusacam was created to fulfill the need of a cheap and simple 
+surveillance system that had their own storage (no cloud required), ran
+on an inexpensive platform and was simple to operate.
+
+The end result is a simple web app intended to run on a Raspberry PI 
+that starts recording on the Pi camera based on the output of a 
+motion sensor and stores the resulting video so that using the app you 
+can browse recorded videos, define basic storage policies (how much 
+space you want your recorded videos to take and how long you want to 
+keep them), replay videos and have a basic live preview of what the 
+camera is seeing at any moment.
+
+The hardware used is:
+
++ Raspberry Pi: Development was done on a Pi 3B+, but any Pi that has
+a camera slot should suffice
++ Pi Camera: either the PiNoir or the standard Pi Camera can be used
++ Motion sensor: I used the HC-SR501 PIR sensor
+
 # Basic setup steps
 
 ## Create a Python virtual environment
@@ -139,6 +160,17 @@ To manually start the service do a
 ```
 sudo systemctl start tusacam.service
 ```
+## Testing and adjusting the hardware
+
+At this point you should be able to access the web app from the 
+```http://<your IP IP address>/browse``` URL from any device in your 
+network. You should be able to see if it is working by moving something 
+in from of the motion sensor. If all goes well you should be able to
+see a live preview of the camera and see/change the storage policies.
+
+You may want to adjust to trigger delay and range of the motion sensor
+using its two dials, I found a nice explanation 
+[here](http://qqtrading.com.my/pir-motion-sensor-module-hc-sr501)
 
 ## Making the Pi IP address fixed
 
