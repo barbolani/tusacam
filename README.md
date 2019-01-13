@@ -68,6 +68,7 @@ you're not likely going to need much more than an admin user.
 ```
 source <environment folder>/bin/activate
 cd <app folder>
+python manage.py migrate
 python manage.py createsuperuser
 ```
 
